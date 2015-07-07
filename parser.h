@@ -16,7 +16,7 @@ class Parser
         string dest();
         string comp();
         string jump();
-}
+};
 
 #endif
 
