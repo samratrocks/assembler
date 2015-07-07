@@ -1,3 +1,4 @@
+.gitignore
 script.py
 *.o
 *.out
