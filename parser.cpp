@@ -7,10 +7,11 @@ using std::ifstream;
 using std::cerr;
 using std::endl;
 
-int main()
-{
-    // Open the file
-    ifstream inputFile("file.hack", ios::in);
+// Constructor
+string fileName("file.hack");
+Parser::Parser(string fileName) {
+// Open the file
+    ifstream inputFile(fileName, ios::in);
 
     // exit if the file couldn't be found
     if (!inputFile) {
@@ -18,3 +19,5 @@ int main()
         exit(1);
     }
 }
+
+

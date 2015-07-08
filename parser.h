@@ -7,7 +7,7 @@ using std::string;
 class Parser
 {
     public: 
-        Parser(const string &);   // Takes in the name of the input file
+        Parser(string fileName);   // Takes in the name of the input file
         
         bool hasMoreCommands();   // Are there more commands in the input source
         void advance();
