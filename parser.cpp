@@ -9,7 +9,8 @@ using std::endl;
 
 // Constructor
 string fileName("file.hack");
-Parser::Parser(string fileName) {
+Parser::Parser(string fileName) 
+{
 // Open the file
     ifstream inputFile(fileName, ios::in);
 
@@ -18,6 +19,21 @@ Parser::Parser(string fileName) {
         cerr << "File not found..." << endl;
         exit(1);
     }
-}
+}   // Parser::Parser
 
+
+bool Parser::hasMoreCommands() 
+{
+   /*   hasmoreCommands() is true is there are more lines left on the file. 
+    *   
+    */
+
+    /* Unclean code 
+    string line;
+    while (std::getline(fileName, line))
+	{
+        ++number_of_lines;
+	}
+    */
+}
 

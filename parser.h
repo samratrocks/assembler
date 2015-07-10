@@ -16,6 +16,12 @@ class Parser
         string dest();
         string comp();
         string jump();
+
+    private:
+        /* Data objects */
+        ifstream inputFile;
+        string fileName;
+
 };
 
 #endif
