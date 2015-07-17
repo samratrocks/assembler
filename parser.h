@@ -7,7 +7,7 @@ using std::string;
 class Parser
 {
     public: 
-        Parser(string fileName);   // Takes in the name of the input file
+        Parser(string fileName);   // Initialize parser 
         
         bool hasMoreCommands();   // Are there more commands in the input source
         void advance();
@@ -21,6 +21,9 @@ class Parser
         /* Data objects */
         ifstream inputFile;
         string fileName;
+        int totalCommands;
+        int programCounter;     // Works like an Program Counter in assembly
+        string currentCommand   // This string contains the current program command
 
 };
 
