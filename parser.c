@@ -5,18 +5,22 @@
 void init();
 int getNumberOfLines();
 void readAndParse();
+void createSymbolTable();
+void pSTable();									/* for debugging purposes only, print out the symbol table 		*/
 
 
 /* global variables */
 FILE *fin;											/* handle to the input file 																	*/
 int currentLine;								/* keeps track of the line being parsed 											*/
 int numberOfLines;							/* keeps track of the number of lines the program contains	 */
-char strs[1000][8];							/* char strs[NUMBER_OF_STRINGS][STRING_LENGTH+1];						 */
+char strs[100][8];							/* char strs[NUMBER_OF_STRINGS][STRING_LENGTH+1];						 */
 
 int main(void)
 {
   init(); 
-  readAndParse();
+  // readAndParse();
+	createSymbolTable();
+	pSTable();
 }
 
 void init()
@@ -36,9 +40,6 @@ void readAndParse()
   ssize_t read;
   size_t len = 0;
   while ((read = getline(&line, &len, fin)) != -1) {
-		if (strstr(line, "@")) {
-    	printf("%s", line);
-		}
 	}
     /* All the parsing code goes here!" */
 }
@@ -62,13 +63,31 @@ int getNumberOfLines()
 
 void createSymbolTable()
 {
-	char * line = NULL;
+	int symbolCount = 0;																	/* to store the current symbol into the array */
+	
+	/* generic code to readline from a file */
+	char * line = NULL;																
   ssize_t read;
   size_t len = 0;
   while ((read = getline(&line, &len, fin)) != -1) {
-    printf("%s", line);
+		if (strstr(line, "@")) {		/* if the line contains the symbol @ */
+			symbolCount++;						/* add it to the symbolarray */
+    	printf("%d: %s", symbolCount, line);
+			
+			/* Add to the array */
+			strcpy(strs[symbolCount], line);
+			
+		}
     /* Code for symbol table goes here */
 		
   }
 	
 }
+
+void pSTable() 
+{
+	for (int i=0; i<100; i++) {
+		printf("%d: %s \t", i, strs[i]);
+	}
+}
+
