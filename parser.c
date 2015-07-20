@@ -8,9 +8,10 @@ void readAndParse();
 
 
 /* global variables */
-FILE *fin;				/* handle to the input file */
-int currentLine;				/* keeps track of the line being parsed */
-int numberOfLines;			/* keeps track of the number of lines the program contains */
+FILE *fin;											/* handle to the input file 																	*/
+int currentLine;								/* keeps track of the line being parsed 											*/
+int numberOfLines;							/* keeps track of the number of lines the program contains	 */
+char strs[1000][8];							/* char strs[NUMBER_OF_STRINGS][STRING_LENGTH+1];						 */
 
 int main(void)
 {
@@ -35,9 +36,11 @@ void readAndParse()
   ssize_t read;
   size_t len = 0;
   while ((read = getline(&line, &len, fin)) != -1) {
-    printf("%s", line);
+		if (strstr(line, "@")) {
+    	printf("%s", line);
+		}
+	}
     /* All the parsing code goes here!" */
-  }
 }
 
 void advanceProgram()
@@ -55,4 +58,17 @@ int getNumberOfLines()
      of newlines ('\n') in the program.
   */
   return 10;
+}
+
+void createSymbolTable()
+{
+	char * line = NULL;
+  ssize_t read;
+  size_t len = 0;
+  while ((read = getline(&line, &len, fin)) != -1) {
+    printf("%s", line);
+    /* Code for symbol table goes here */
+		
+  }
+	
 }
